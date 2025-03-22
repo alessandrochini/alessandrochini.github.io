@@ -4,7 +4,10 @@ body {
     margin: 0;
     background-color: #f7f7f7;
     color: #333;
+    font-size: 18px;
+    line-height: 1.8;
 }
+
 .sidebar {
     width: 220px;
     position: fixed;
@@ -12,29 +15,57 @@ body {
     background-color: #4b1c1c;
     padding-top: 20px;
 }
+
 .sidebar ul {
     list-style: none;
     padding: 0;
 }
+
 .sidebar ul li {
     padding: 12px;
     text-align: center;
 }
+
 .sidebar ul li a {
     color: white;
     text-decoration: none;
+    font-size: 18px;
 }
+
 .sidebar ul li a:hover {
     background-color: #a94442;
     display: block;
 }
+
 .content {
     margin-left: 240px;
-    padding: 20px;
+    padding: 40px;
+    scroll-behavior: smooth;
 }
-h1, h2, h3 {
+
+h1 {
+    font-size: 42px;
+    margin-bottom: 0;
+    color: #222;
+}
+
+h2 {
+    font-size: 32px;
+    color: #4b1c1c;
+    margin-top: 40px;
+}
+
+h3 {
+    font-size: 26px;
     color: #4b1c1c;
 }
+
 ul li {
-    margin-bottom: 8px;
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+
+p {
+    font-size: 18px;
+    margin-bottom: 15px;
 }
