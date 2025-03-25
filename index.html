@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,41 +8,34 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div id="language-switcher">
-    <a href="index.html">EN</a> | <a href="index-it.html">IT</a>
-  </div>
-  <div class="recruiter-screen" id="recruiterScreen">
-    <p>This space was designed with recruiters in mind. Are you one of them?</p>
-    <button onclick="enterSite()">Yes, I'm a recruiter</button>
-    <button onclick="stayOut()">No, just visiting</button>
-  </div>
-  <div id="mainContent" style="display:none;">
-    <section id="about">
-      <img src="assets/icons/user.svg" class="icon" />
-      <h2>About Me</h2>
-      <p>This portfolio is designed to help recruiters get to know me through an interactive assistant.</p>
-    </section>
-    <section id="virtual-assistant">
-      <img src="assets/icons/robot.svg" class="icon" />
-      <h2>Virtual Assistant</h2>
-      <p>This is an automated assistant that answers questions about my experience and skills — a reversal of the usual AI-powered interview.</p>
-    </section>
-  </div>
-  <script>
-    function enterSite() {
-      document.getElementById("recruiterScreen").style.display = "none";
-      document.getElementById("mainContent").style.display = "block";
-    }
-    function stayOut() {
-      alert("This portfolio is primarily intended for recruiters. You are still welcome to explore!");
-      document.getElementById("recruiterScreen").style.display = "none";
-      document.getElementById("mainContent").style.display = "block";
-    }
-  </script>
+<div class="recruiter-screen" id="recruiterScreen">
+  <p>👋 Welcome to my professional space.<br>This portfolio is designed for recruiters and talent professionals.<br>If that’s you, go ahead and explore!</p>
+  <button onclick="enterSite()">✅ Yes, I’m a recruiter</button>
+  <button onclick="stayOut()">➡️ I’m just visiting</button>
+</div>
 
-<footer style="text-align:center; font-size: 12px; color: white; opacity: 0.4; margin-top: 50px;">
-  This project is the exclusive intellectual property of Alessandro Chini. Any unauthorized reproduction or use is prohibited.
-</footer>
+<div id="mainContent" style="display:none;">
+  <div id="language-switcher"><a href="index.html">EN</a> | <a href="index-it.html">IT</a></div>
+  <section id="about"><img src="assets/icons/user.svg" class="icon" /><h2>About Me</h2><p>Digital transformation enthusiast, passionate about business analysis and innovation.</p></section>
+  <section id="experience"><img src="assets/icons/briefcase.svg" class="icon" /><h2>Experience</h2><p>OmniFast Solutions – Business Assistant<br/>Yoyogurt – Sales Clerk</p></section>
+  <section id="education"><img src="assets/icons/education.svg" class="icon" /><h2>Education</h2><p>Roma Tre University – Economics and Big Data<br>Kaplan – Business English (NY)</p></section>
+  <section id="skills"><img src="assets/icons/skills.svg" class="icon" /><h2>Skills</h2><ul><li>Digital Strategy</li><li>Data-Driven Decision Making</li><li>Communication & Teamwork</li></ul></section>
+  <section id="languages"><img src="assets/icons/language.svg" class="icon" /><h2>Languages</h2><p>Italian: native • English: C1 • Spanish: B2 • French: B1</p></section>
+  <section id="virtual-assistant"><img src="assets/icons/robot.svg" class="icon" /><h2>Virtual Assistant</h2><p>This assistant replies to recruiters based on my experience, education, and skills — a friendly reversal of the usual AI-powered interview.</p></section>
+  <footer>This project is the exclusive intellectual property of Alessandro Chini. Any unauthorized reproduction or use is prohibited.</footer>
+</div>
 
+<!-- Recruiter screen logic -->
+<script>
+function enterSite() {
+  document.getElementById("recruiterScreen").style.display = "none";
+  document.getElementById("mainContent").style.display = "block";
+}
+function stayOut() {
+  alert("You’re welcome to explore, but this was designed with recruiters in mind!");
+  document.getElementById("recruiterScreen").style.display = "none";
+  document.getElementById("mainContent").style.display = "block";
+}
+</script>
 </body>
 </html>

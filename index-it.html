@@ -1,5 +1,6 @@
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -7,41 +8,34 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div id="language-switcher">
-    <a href="index.html">EN</a> | <a href="index-it.html">IT</a>
-  </div>
-  <div class="recruiter-screen" id="recruiterScreen">
-    <p>Questo spazio è stato pensato per i recruiter. Sei uno di loro?</p>
-    <button onclick="enterSite()">Sì, sono un recruiter</button>
-    <button onclick="stayOut()">No, sto solo dando un’occhiata</button>
-  </div>
-  <div id="mainContent" style="display:none;">
-    <section id="about">
-      <img src="assets/icons/user.svg" class="icon" />
-      <h2>Chi sono</h2>
-      <p>Questo portfolio è pensato per aiutare i recruiter a conoscermi, anche grazie a un assistente virtuale.</p>
-    </section>
-    <section id="virtual-assistant">
-      <img src="assets/icons/robot.svg" class="icon" />
-      <h2>Assistente Virtuale</h2>
-      <p>Questo è un assistente automatico che risponde alle domande su di me e sulle mie competenze — un modo per invertire l’intervista tradizionale gestita dall’IA.</p>
-    </section>
-  </div>
-  <script>
-    function enterSite() {
-      document.getElementById("recruiterScreen").style.display = "none";
-      document.getElementById("mainContent").style.display = "block";
-    }
-    function stayOut() {
-      alert("This portfolio is primarily intended for recruiters. You are still welcome to explore!");
-      document.getElementById("recruiterScreen").style.display = "none";
-      document.getElementById("mainContent").style.display = "block";
-    }
-  </script>
+<div class="recruiter-screen" id="recruiterScreen">
+  <p>👋 Benvenuto nel mio spazio professionale.<br>Questo portfolio è pensato per selezionatori e professionisti del recruiting.<br>Se è il tuo caso, esplora pure!</p>
+  <button onclick="enterSite()">✅ Sì, sono un recruiter</button>
+  <button onclick="stayOut()">➡️ Sto solo curiosando</button>
+</div>
 
-<footer style="text-align:center; font-size: 12px; color: white; opacity: 0.4; margin-top: 50px;">
-  Questo progetto è proprietà intellettuale esclusiva di Alessandro Chini. Qualsiasi riproduzione o utilizzo non autorizzato è vietato.
-</footer>
+<div id="mainContent" style="display:none;">
+  <div id="language-switcher"><a href="index.html">EN</a> | <a href="index-it.html">IT</a></div>
+  <section id="about"><img src="assets/icons/user.svg" class="icon" /><h2>Chi sono</h2><p>Digital transformation enthusiast, passionate about business analysis and innovation.</p></section>
+  <section id="experience"><img src="assets/icons/briefcase.svg" class="icon" /><h2>Esperienze</h2><p>OmniFast Solutions – Business Assistant<br/>Yoyogurt – Sales Clerk</p></section>
+  <section id="education"><img src="assets/icons/education.svg" class="icon" /><h2>Formazione</h2><p>Roma Tre University – Economics and Big Data<br>Kaplan – Business English (NY)</p></section>
+  <section id="skills"><img src="assets/icons/skills.svg" class="icon" /><h2>Competenze</h2><ul><li>Digital Strategy</li><li>Data-Driven Decision Making</li><li>Communication & Teamwork</li></ul></section>
+  <section id="languages"><img src="assets/icons/language.svg" class="icon" /><h2>Lingue</h2><p>Italian: native • English: C1 • Spanish: B2 • French: B1</p></section>
+  <section id="virtual-assistant"><img src="assets/icons/robot.svg" class="icon" /><h2>Assistente Virtuale</h2><p>Questo assistente risponde ai recruiter sulla base del mio profilo, delle esperienze e competenze — un modo ironico per ribaltare il colloquio gestito dall’IA.</p></section>
+  <footer>Questo progetto è proprietà intellettuale esclusiva di Alessandro Chini. Qualsiasi riproduzione o utilizzo non autorizzato è vietato.</footer>
+</div>
 
+<!-- Recruiter screen logic -->
+<script>
+function enterSite() {
+  document.getElementById("recruiterScreen").style.display = "none";
+  document.getElementById("mainContent").style.display = "block";
+}
+function stayOut() {
+  alert("You’re welcome to explore, but this was designed with recruiters in mind!");
+  document.getElementById("recruiterScreen").style.display = "none";
+  document.getElementById("mainContent").style.display = "block";
+}
+</script>
 </body>
 </html>
