@@ -1,85 +1,88 @@
-
+/* ================================
+   STILI PRINCIPALI
+   ================================ */
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    background-color: #f7f7f7;
-    color: #333;
-    font-size: 18px;
-    line-height: 1.8;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background-color: #f7f7f7;
+  color: #333;
+  font-size: 18px;
+  line-height: 1.8;
 }
 
 .sidebar {
-    width: 220px;
-    position: fixed;
-    height: 100%;
-    background-color: #4b1c1c;
-    padding-top: 20px;
+  width: 220px;
+  position: fixed;
+  height: 100%;
+  background-color: #4b1c1c;
+  padding-top: 20px;
 }
 
 .sidebar ul {
-    list-style: none;
-    padding: 0;
+  list-style: none;
+  padding: 0;
 }
 
 .sidebar ul li {
-    padding: 12px;
-    text-align: center;
+  padding: 12px;
+  text-align: center;
 }
 
 .sidebar ul li a {
-    color: white;
-    text-decoration: none;
-    font-size: 18px;
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
 }
 
 .sidebar ul li a:hover {
-    background-color: #a94442;
-    display: block;
+  background-color: #a94442;
+  display: block;
 }
 
 .content {
-    margin-left: 240px;
-    padding: 40px;
-    scroll-behavior: smooth;
+  margin-left: 240px;
+  padding: 40px;
+  scroll-behavior: smooth;
 }
 
 h1 {
-    font-size: 42px;
-    margin-bottom: 0;
-    color: #222;
+  font-size: 42px;
+  margin-bottom: 0;
+  color: #222;
 }
 
 h2 {
-    font-size: 32px;
-    color: #4b1c1c;
-    margin-top: 40px;
+  font-size: 32px;
+  color: #4b1c1c;
+  margin-top: 40px;
 }
 
 h3 {
-    font-size: 26px;
-    color: #4b1c1c;
+  font-size: 26px;
+  color: #4b1c1c;
 }
 
 ul li {
-    margin-bottom: 10px;
-    font-size: 18px;
+  margin-bottom: 10px;
+  font-size: 18px;
 }
 
 p {
-    font-size: 18px;
-    margin-bottom: 15px;
+  font-size: 18px;
+  margin-bottom: 15px;
 }
-/* ------------------------
-   HAMBURGER MENU SOLO MOBILE
------------------------- */
 
-/* Menu hamburger nascosto su desktop */
+/* ================================
+   HAMBURGER MENU SOLO MOBILE
+   ================================ */
+
+/* Nascondi hamburger menu su desktop */
 .mobile-menu-toggle,
 .mobile-nav {
   display: none;
 }
 
-/* Mostra hamburger solo su mobile */
+/* Stili per dispositivi mobili */
 @media screen and (max-width: 768px) {
   body {
     font-size: 16px;
@@ -87,7 +90,7 @@ p {
   }
 
   .sidebar {
-    display: none; /* Nascondi sidebar su mobile */
+    display: none;
   }
 
   .content {
@@ -103,7 +106,7 @@ p {
     padding-bottom: 2rem;
   }
 
-  /* Tawk.to widget posizione mobile */
+  /* Posizione Tawk.to su mobile */
   .tawk-min-container {
     bottom: 20px !important;
     right: 10px !important;
@@ -124,7 +127,23 @@ p {
     font-size: 1rem !important;
   }
 
-  /* Stili hamburger menu */
+  /* ✅ Centrare lo switch EN/IT */
+  #access-banner div[style*="top: 1rem;"] {
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    transform: none !important;
+    justify-content: center !important;
+    display: flex !important;
+    margin-bottom: 1.5rem;
+  }
+
+  #access-banner {
+    text-align: center;
+    align-items: center;
+  }
+
+  /* Hamburger menu */
   .mobile-menu-toggle {
     display: block;
     background-color: #4b1c1c;
@@ -157,3 +176,4 @@ p {
     font-weight: bold;
   }
 }
+
