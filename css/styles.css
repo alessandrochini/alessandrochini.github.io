@@ -69,3 +69,91 @@ p {
     font-size: 18px;
     margin-bottom: 15px;
 }
+/* ------------------------
+   HAMBURGER MENU SOLO MOBILE
+------------------------ */
+
+/* Menu hamburger nascosto su desktop */
+.mobile-menu-toggle,
+.mobile-nav {
+  display: none;
+}
+
+/* Mostra hamburger solo su mobile */
+@media screen and (max-width: 768px) {
+  body {
+    font-size: 16px;
+    padding: 10px;
+  }
+
+  .sidebar {
+    display: none; /* Nascondi sidebar su mobile */
+  }
+
+  .content {
+    margin-left: 0;
+    padding: 1rem;
+  }
+
+  h1, h2, h3 {
+    font-size: 1.2rem;
+  }
+
+  section {
+    padding-bottom: 2rem;
+  }
+
+  /* Tawk.to widget posizione mobile */
+  .tawk-min-container {
+    bottom: 20px !important;
+    right: 10px !important;
+    transform: scale(1.2) !important;
+    z-index: 9999 !important;
+  }
+
+  #access-banner h2 {
+    font-size: 1.2rem;
+  }
+
+  #access-banner button {
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+  }
+
+  #access-banner div[style*="top: 1rem;"] a {
+    font-size: 1rem !important;
+  }
+
+  /* Stili hamburger menu */
+  .mobile-menu-toggle {
+    display: block;
+    background-color: #4b1c1c;
+    color: white;
+    padding: 1rem;
+    text-align: center;
+    font-weight: bold;
+    cursor: pointer;
+  }
+
+  .mobile-nav {
+    display: none;
+    background-color: #eee;
+    padding: 1rem;
+  }
+
+  .mobile-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .mobile-nav li {
+    margin: 0.5rem 0;
+  }
+
+  .mobile-nav a {
+    text-decoration: none;
+    color: #4b1c1c;
+    font-weight: bold;
+  }
+}
