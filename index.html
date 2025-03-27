@@ -31,6 +31,20 @@
 
 </head>
 <body id="page-top">
+   
+<!-- Mobile Hamburger Menu -->
+<div class="mobile-menu-toggle" onclick="toggleMobileMenu()">☰ Menu</div>
+<nav class="mobile-nav" id="mobileNav">
+  <ul>
+    <li><a href="#about">About / Chi sono</a></li>
+    <li><a href="#experience">Experience / Esperienza</a></li>
+    <li><a href="#education">Education / Formazione</a></li>
+    <li><a href="#skills">Skills / Competenze</a></li>
+    <li><a href="#languages">Languages / Lingue</a></li>
+    <li><a href="#virtual-assistant">Virtual Assistant / Assistente Virtuale</a></li>
+    <li><a href="#contact">Contact / Contatti</a></li>
+  </ul>
+</nav>
      
     <!-- Recruiter access gate -->
 <div id="access-banner" style="position: fixed; top: 0; left: 0; width: 100%; height: 100vh; background-color: #f0f0f0; z-index: 9998; display: flex; flex-direction: column; justify-content: center; align-items: center; font-family: sans-serif; text-align: center; padding: 2rem;">
@@ -197,6 +211,14 @@ s0.parentNode.insertBefore(s1,s0);
     z-index: 9999 !important;
   }
 </style>
+
+<script>
+  function toggleMobileMenu() {
+    const nav = document.getElementById('mobileNav');
+    nav.style.display = nav.style.display === 'block' ? 'none' : 'block';
+  }
+</script>
+
 
 </body>
 
