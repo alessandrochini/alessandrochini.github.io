@@ -34,30 +34,32 @@
      
     <!-- Recruiter access gate -->
 <div id="access-banner" style="position: fixed; top: 0; left: 0; width: 100%; height: 100vh; background-color: #f0f0f0; z-index: 9998; display: flex; flex-direction: column; justify-content: center; align-items: center; font-family: sans-serif; text-align: center; padding: 2rem;">
-    <!-- Language Switcher centered inside banner -->
-<div style="position: absolute; top: 1rem; left: 50%; transform: translateX(-50%); font-size: 1.5rem;">
-  <a href="index.html" title="English version" 
-     style="margin-right: 10px; color: #470000; text-decoration: none; opacity: 0.5; transition: opacity 0.3s;" 
-     onmouseover="this.style.opacity='1'" 
-     onmouseout="this.style.opacity='0.5'">🇬🇧 EN</a>
-  <a href="index-it.html" title="Versione italiana" 
-     style="color: #470000; text-decoration: none; opacity: 0.5; transition: opacity 0.3s;" 
-     onmouseover="this.style.opacity='1'" 
-     onmouseout="this.style.opacity='0.5'">🇮🇹 IT</a>
-</div>
-
+  <!-- Language Switcher centered inside banner -->
+  <div style="position: absolute; top: 1rem; left: 50%; transform: translateX(-50%); display: flex; gap: 2rem; font-size: 1.1rem;">
+    <a href="index.html" title="English version" 
+       style="color: #470000; font-weight: bold; text-decoration: none; opacity: 0.6; transition: opacity 0.3s;" 
+       onmouseover="this.style.opacity='1'" 
+       onmouseout="this.style.opacity='0.6'">EN</a>
+    <a href="index-it.html" title="Versione italiana" 
+       style="color: #470000; font-weight: bold; text-decoration: none; opacity: 0.6; transition: opacity 0.3s;" 
+       onmouseover="this.style.opacity='1'" 
+       onmouseout="this.style.opacity='0.6'">IT</a>
   </div>
+
   <h2 style="color: #470000; font-size: 1.5rem; max-width: 600px;">
     This portfolio is designed for recruiters only.<br><br>
     Are you a recruiter?
   </h2>
+
   <div style="margin-top: 2rem;">
     <button onclick="unlockSite()" style="padding: 0.7rem 1.5rem; margin: 0 1rem; background-color: #470000; color: white; border: none; border-radius: 5px; cursor: pointer;">Yes</button>
     <button onclick="denyAccess()" style="padding: 0.7rem 1.5rem; margin: 0 1rem; background-color: #888; color: white; border: none; border-radius: 5px; cursor: pointer;">No</button>
   </div>
+
   <p id="denied-msg" style="margin-top: 2rem; color: #555; font-style: italic; display: none; max-width: 600px;">
     This site is intended exclusively for recruiting purposes. Any attempt to replicate, reuse or copy its content is not permitted.
   </p>
+
 </div>
 
 <script>
