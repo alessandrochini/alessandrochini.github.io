@@ -21,6 +21,35 @@ body {
   margin-bottom: 20px;
 }
 
+/* ===== Language Switcher (Top Right Flags) ===== */
+.lang-switcher {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  z-index: 9999;
+  background: rgba(255, 255, 255, 0.85);
+  padding: 0.3rem 0.8rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lang-switcher a {
+  text-decoration: none;
+  font-size: 1.6rem;
+  margin: 0 0.4rem;
+  opacity: 0.5; /* 👈 bandiere sfocate di base */
+  transition: opacity 0.3s ease;
+  filter: grayscale(40%); /* 👈 effetto ancora più sobrio */
+}
+
+.lang-switcher a:hover {
+  opacity: 1; /* 👈 al passaggio del mouse: nitide */
+  filter: none;
+}
+
 .recruiter-screen {
   background: #f9f9f9;
   border: 1px solid #ccc;
