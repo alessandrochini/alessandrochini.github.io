@@ -6,28 +6,56 @@
     <title>Alessandro Chini - Portfolio</title>
     <link href="css/styles.css" rel="stylesheet" />
 
-    <!-- Cookie Consent by Osano -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css" />
-    <script src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js"></script>
-    <script>
-      window.addEventListener("load", function(){
-        window.cookieconsent.initialise({
-          palette: {
-            popup: { background: "rgba(255, 255, 255, 0.95)", text: '#000' },
-            button: { background: "#e85d5d" }
-          },
-          theme: "classic",
-          content: {
-            message: "Questo sito utilizza cookie tecnici per migliorare l’esperienza.",
-            dismiss: "OK",
-            link: "Leggi di più",
-            href: "#"
-          }
-        });
-      });
-    </script>
+<!-- Cookie Consent by Osano -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css" />
+<script src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js"></script>
+<script>
+  window.addEventListener("load", function() {
+    window.cookieconsent.initialise({
+      palette: {
+        popup: { background: "rgba(255, 255, 255, 0.95)", text: "#000" },
+        button: { background: "#e85d5d" }
+      },
+      theme: "classic",
+      type: "opt-in", // Consente rifiuto
+      content: {
+        message: "This site uses technical cookies to improve the user experience.",
+        dismiss: "Accept",
+        deny: "Decline",
+        link: "Privacy Policy",
+        href: "privacy.html"
+      }
+    });
+  });
+</script>
+
 </head>
 <body id="page-top">
+    <!-- Recruiter access gate -->
+<div id="access-banner" style="position: fixed; top: 0; left: 0; width: 100%; height: 100vh; background-color: #f0f0f0; z-index: 9999; display: flex; flex-direction: column; justify-content: center; align-items: center; font-family: sans-serif; text-align: center; padding: 2rem;">
+  <h2 style="color: #470000; font-size: 1.5rem; max-width: 600px;">
+    This portfolio is designed for recruiters only.<br><br>
+    Are you a recruiter?
+  </h2>
+  <div style="margin-top: 2rem;">
+    <button onclick="unlockSite()" style="padding: 0.7rem 1.5rem; margin: 0 1rem; background-color: #470000; color: white; border: none; border-radius: 5px; cursor: pointer;">Yes</button>
+    <button onclick="denyAccess()" style="padding: 0.7rem 1.5rem; margin: 0 1rem; background-color: #888; color: white; border: none; border-radius: 5px; cursor: pointer;">No</button>
+  </div>
+  <p id="denied-msg" style="margin-top: 2rem; color: #555; font-style: italic; display: none; max-width: 600px;">
+    This site is intended exclusively for recruiting purposes. Any attempt to replicate, reuse or copy its content is not permitted.
+  </p>
+</div>
+
+<script>
+  function unlockSite() {
+    document.getElementById('access-banner').style.display = 'none';
+  }
+
+  function denyAccess() {
+    document.getElementById('denied-msg').style.display = 'block';
+  }
+</script>
+
     <nav class="sidebar">
         <ul>
             <li><a href="#about">About</a></li>
