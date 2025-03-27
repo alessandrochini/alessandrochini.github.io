@@ -1,215 +1,172 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Alessandro Chini - Portfolio</title>
-    <link href="css/styles.css" rel="stylesheet" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Alessandro Chini - Portfolio</title>
+  <link href="css/styles.css" rel="stylesheet" />
 
-    <!-- Cookie Consent by Osano -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css" />
-    <script src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js"></script>
-    <script>
-      window.addEventListener("load", function(){
-        window.cookieconsent.initialise({
-          palette: {
-            popup: { background: "rgba(255, 255, 255, 0.95)", text: '#000' },
-            button: { background: "#e85d5d" }
-          },
-          theme: "classic",
-          content: {
-            message: "Questo sito utilizza cookie tecnici per migliorare l’esperienza.",
-            dismiss: "OK",
-            link: "Leggi di più",
-            href: "#"
-          }
-        });
+  <!-- Cookie Consent by Osano -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js"></script>
+  <script>
+    window.addEventListener("load", function() {
+      window.cookieconsent.initialise({
+        palette: {
+          popup: { background: "rgba(255, 255, 255, 0.95)", text: "#000" },
+          button: { background: "#e85d5d" }
+        },
+        theme: "classic",
+        type: "opt-in",
+        content: {
+          message: "Questo sito utilizza cookie tecnici per migliorare l'esperienza dell'utente.",
+          dismiss: "Accetta",
+          deny: "Rifiuta",
+          link: "Privacy Policy",
+          href: "privacy-policy.html"
+        }
       });
-    </script>
+    });
+  </script>
 </head>
 <body id="page-top">
-    <nav class="sidebar">
-        <ul>
-            <li><a href="#about">About</a></li>
-            <li><a href="#experience">Experience</a></li>
-            <li><a href="#education">Education</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#languages">Languages</a></li>
-            <li><a href="#virtual-assistant">Virtual Assistant</a></li>
-<li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
-    <div class="content">
-        <section id="about">
-            <h1>Alessandro Chini</h1>
-            <h3>Business Assistant | Digital Transformation Enthusiast</h3>
-            <p>I'm a highly motivated business student with a strong interest in digital innovation and data-driven strategies. I have gained experience supporting digital services and communication projects in a fast-paced SME environment. My academic path and practical experience allow me to combine analytical thinking and creativity.</p>
-        
-</section>
 
-        <section id="experience">
-            <h2>Experience</h2>
-            <h3>Business Assistant – OmniFast Solutions S.R.L.</h3>
-            <p><strong>Feb 2024 – Present | Rome</strong><br>
-            Supporting digital and organizational activities in a SME focused on business digitalization. Key tasks:
-            <ul>
-                <li>Operational support on Print & Go and Fast Project services</li>
-                <li>Customer assistance and contact management</li>
-                <li>Social media management via Meta Business</li>
-                <li>Content creation with Canva for promotion and branding</li>
-                <li>Documentation and digital project coordination</li>
-                <li>Support to SMEs during digital transformation consultancy</li>
-            </ul>
-            </p>
-            <h3>Banchista – Yoyogurt</h3>
-            <p><strong>Jul 2023 – Sep 2023 | Rome</strong><br>
-            Customer service and teamwork in a dynamic retail environment:
-            <ul>
-                <li>Welcoming customers and managing service counter</li>
-                <li>Order preparation and store upkeep</li>
-                <li>Cash handling and operational support</li>
-                <li>Improved adaptability, time management and interpersonal skills</li>
-            </ul>
-            </p>
-        </section>
+<!-- Accesso recruiter -->
+<div id="access-banner" style="position: fixed; top: 0; left: 0; width: 100%; height: 100vh; background-color: #f0f0f0; z-index: 9999; display: flex; flex-direction: column; justify-content: center; align-items: center; font-family: sans-serif; text-align: center; padding: 2rem;">
+  <h2 style="color: #470000; font-size: 1.5rem; max-width: 600px;">
+    Questo portfolio è progettato esclusivamente per recruiter.<br><br>
+    Sei un recruiter?
+  </h2>
+  <div style="margin-top: 2rem;">
+    <button onclick="unlockSite()" style="padding: 0.7rem 1.5rem; margin: 0 1rem; background-color: #470000; color: white; border: none; border-radius: 5px; cursor: pointer;">Sì</button>
+    <button onclick="denyAccess()" style="padding: 0.7rem 1.5rem; margin: 0 1rem; background-color: #888; color: white; border: none; border-radius: 5px; cursor: pointer;">No</button>
+  </div>
+  <p id="denied-msg" style="margin-top: 2rem; color: #555; font-style: italic; display: none; max-width: 600px;">
+    Questo sito è destinato esclusivamente a fini di selezione. Qualsiasi tentativo di copiare o replicarne i contenuti non è consentito.
+  </p>
+</div>
 
-        <section id="education">
-            <h2>Education</h2>
-            <h3>Bachelor’s Degree in Economic Sciences – Roma Tre University</h3>
-            <p><strong>2022 – ongoing</strong><br>
-            Focus: digital economy, market analysis, public/private big data strategies, use of RStudio, SQL, Python (basic)</p>
-            <h3>Business English Course – ESL Language School, Kaplan – New York</h3>
-            <p><strong>Jul – Aug 2022</strong><br>
-            Business communication, group projects, debates on digital topics, TED Talks analysis, presentations, business vocabulary</p>
-        </section>
+<script>
+  function unlockSite() {
+    document.getElementById('access-banner').style.display = 'none';
+  }
 
-        <section id="skills">
-            <h2>Skills</h2>
-            <ul>
-                <li>Business Support & Digital Transformation</li>
-                <li>Social Media Management</li>
-                <li>Data-driven decision making</li>
-                <li>Market Research & Communication</li>
-                <li>Content Creation (Canva)</li>
-                <li>Teamwork & Problem Solving</li>
-                <li>RStudio, SQL, Python (base)</li>
-            </ul>
-        </section>
+  function denyAccess() {
+    document.getElementById('denied-msg').style.display = 'block';
+  }
+</script>
 
-        <section id="languages">
-            <h2>Languages</h2>
-            <ul>
-                <li>Italian: Native speaker</li>
-                <li>English: C1</li>
-                <li>Spanish: B2</li>
-                <li>French: B1</li>
-            </ul>
-        </section>
+<nav class="sidebar">
+  <ul>
+    <li><a href="#about">Chi sono</a></li>
+    <li><a href="#experience">Esperienza</a></li>
+    <li><a href="#education">Formazione</a></li>
+    <li><a href="#skills">Competenze</a></li>
+    <li><a href="#languages">Lingue</a></li>
+    <li><a href="#virtual-assistant">Assistente Virtuale</a></li>
+    <li><a href="#contact">Contatti</a></li>
+  </ul>
+</nav>
 
-        
-<section id="virtual-assistant">
-    
-    <p>
-        Let’s talk — your questions matter.<br><br>
-        This portfolio isn’t just a static collection of information — it’s an interactive space where you can explore who I am beyond the page.
-        That’s why I’ve added a virtual assistant: a simple and engaging way to connect.<br><br>
-        Whether you're curious about my academic background, digital skills, work experience or approach to teamwork, feel free to ask anything.
-        Think of it as a conversation with me — just quicker and more intuitive.
-        The assistant is here to help you discover more, in your own way and at your own pace.<br><br>
-        Give it a try — because sometimes, the best way to learn about someone is to start a conversation.
+<div class="content">
+  <section id="about">
+    <h1>Alessandro Chini</h1>
+    <h3>Business Assistant | Appassionato di trasformazione digitale</h3>
+    <p>Sono uno studente di economia motivato, con una forte passione per l’innovazione digitale e le strategie data-driven. Ho maturato esperienza nel supportare servizi digitali e progetti di comunicazione in una PMI dinamica. Il mio percorso accademico e l’esperienza pratica mi permettono di coniugare pensiero analitico e creatività.</p>
+  </section>
+
+  <section id="experience">
+    <h2>Esperienza</h2>
+    <h3>Business Assistant – OmniFast Solutions S.R.L.</h3>
+    <p><strong>Feb 2024 – Oggi | Roma</strong><br>
+    Supporto alle attività digitali e organizzative in una PMI orientata alla digitalizzazione aziendale. Mansioni principali:
+    <ul>
+      <li>Supporto operativo ai servizi Print & Go e Fast Project</li>
+      <li>Assistenza clienti e gestione dei contatti</li>
+      <li>Gestione social tramite Meta Business</li>
+      <li>Creazione contenuti con Canva per promozione e branding</li>
+      <li>Documentazione e coordinamento progetti digitali</li>
+      <li>Supporto alle PMI in processi di trasformazione digitale</li>
+    </ul>
     </p>
-</section>
+    <h3>Commesso – Yoyogurt</h3>
+    <p><strong>Lug 2023 – Set 2023 | Roma</strong><br>
+    Servizio clienti e lavoro di squadra in un ambiente retail dinamico:
+    <ul>
+      <li>Accoglienza clienti e gestione del banco</li>
+      <li>Preparazione ordini e cura del punto vendita</li>
+      <li>Gestione cassa e supporto operativo</li>
+      <li>Sviluppo di adattabilità, gestione del tempo e soft skills</li>
+    </ul>
+    </p>
+  </section>
 
-<section id="contact">
-            <h2>Contact</h2>
-            <p>Email: <a href="mailto:alessandrochini14@gmail.com">alessandrochini14@gmail.com</a></p>
-            <p><a href="https://www.linkedin.com/in/alessandro-chini-591701192/" target="_blank">LinkedIn Profile</a></p>
-            <p><a href="#">Download CV (Coming Soon)</a></p>
-        </section>
-    </div>
+  <section id="education">
+    <h2>Formazione</h2>
+    <h3>Laurea in Economia e Big Data – Università Roma Tre</h3>
+    <p><strong>2022 – in corso</strong><br>
+    Focus: economia digitale, analisi di mercato, strategie big data nel settore pubblico e privato, utilizzo di RStudio, SQL, Python (base)</p>
+    <h3>Business English – ESL Language School, Kaplan – New York</h3>
+    <p><strong>Lug – Ago 2022</strong><br>
+    Comunicazione aziendale, lavori di gruppo, dibattiti su temi digitali, analisi TED Talks, presentazioni, vocabolario business</p>
+  </section>
 
-    
-        
-        
-    </section>
+  <section id="skills">
+    <h2>Competenze</h2>
+    <ul>
+      <li>Supporto al business e digital transformation</li>
+      <li>Gestione social media</li>
+      <li>Decisioni basate sui dati</li>
+      <li>Ricerche di mercato e comunicazione</li>
+      <li>Content creation (Canva)</li>
+      <li>Teamwork e problem solving</li>
+      <li>RStudio, SQL, Python (base)</li>
+    </ul>
+  </section>
 
-<!-- Start of Tawk.to Script -->
+  <section id="languages">
+    <h2>Lingue</h2>
+    <ul>
+      <li>Italiano: madrelingua</li>
+      <li>Inglese: C1</li>
+      <li>Spagnolo: B2</li>
+      <li>Francese: B1</li>
+    </ul>
+  </section>
+
+  <section id="virtual-assistant">
+    <h2>Assistente Virtuale</h2>
+    <p>
+      Benvenuti in un portfolio nuovo — uno che risponde.<br><br>
+      Questa sezione presenta il mio <strong>chatbot basato su Intelligenza Artificiale</strong>, progettato per rispondere a domande basate sulle mie esperienze, formazione e competenze.<br><br>
+      Non è solo uno strumento intelligente — è un modo per scoprire chi sono attraverso una <strong>conversazione interattiva</strong>.<br><br>
+      Sentiti libero di chiedere qualsiasi cosa. <strong>Lascia che sia la curiosità a guidare la conversazione.</strong>
+    </p>
+  </section>
+
+  <section id="contact">
+    <h2>Contatti</h2>
+    <p>Email: <a href="mailto:alessandrochini14@gmail.com">alessandrochini14@gmail.com</a></p>
+    <p><a href="https://www.linkedin.com/in/alessandro-chini-591701192/" target="_blank">Profilo LinkedIn</a></p>
+    <p><a href="#">Scarica CV (Prossimamente)</a></p>
+  </section>
+</div>
+
+<!-- Script Tawk.to -->
 <script type="text/javascript">
 var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
 (function(){
 var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
 s1.async=true;
-s1.src='https://embed.tawk.to/your_tawkto_id_here/1exampleid';
+s1.src='https://embed.tawk.to/your_tawkto_id_here/1exampleid'; // Inserisci qui il tuo ID reale
 s1.charset='UTF-8';
 s1.setAttribute('crossorigin','*');
 s0.parentNode.insertBefore(s1,s0);
 })();
 </script>
-<!-- End of Tawk.to Script -->
-
-
-<!--Start of Tawk.to Script--> 
-<script type="text/javascript">
-var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-(function(){
-var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-s1.async=true;
-s1.src='https://embed.tawk.to/67df3848ae569c190e193d15/1imvv7na1';
-s1.charset='UTF-8';
-s1.setAttribute('crossorigin','*');
-s0.parentNode.insertBefore(s1,s0);
-})();
-</script>
-<!--End of Tawk.to Script-->
-
-
-<!--Start of Tawk.to Script--> 
-<script type="text/javascript">
-var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-(function(){
-var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-s1.async=true;
-s1.src='https://embed.tawk.to/67df3848ae569c190e193d15/1imvv7na1';
-s1.charset='UTF-8';
-s1.setAttribute('crossorigin','*');
-s0.parentNode.insertBefore(s1,s0);
-})();
-</script>
-<!--End of Tawk.to Script-->
-
-
-<!--Start of Tawk.to Script--> 
-<script type="text/javascript">
-var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-(function(){
-var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-s1.async=true;
-s1.src='https://embed.tawk.to/67df3848ae569c190e193d15/1imvv7na1';
-s1.charset='UTF-8';
-s1.setAttribute('crossorigin','*');
-s0.parentNode.insertBefore(s1,s0);
-})();
-</script>
-<!--End of Tawk.to Script-->
-
-
-
-
-
-<!--Start of Tawk.to Script--> 
-<script type="text/javascript">
-var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-(function(){
-var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-s1.async=true;
-s1.src='https://embed.tawk.to/67df3848ae569c190e193d15/1imvv7na1';
-s1.charset='UTF-8';
-s1.setAttribute('crossorigin','*');
-s0.parentNode.insertBefore(s1,s0);
-})();
-</script>
-<!--End of Tawk.to Script-->
+<!-- Fine Script Tawk.to -->
 
 </body>
+</html>
 
 </html>
