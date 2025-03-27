@@ -15,11 +15,48 @@ body {
   stroke: #4b1c1c;
 }
 
-/* Personalizzazione elegante Tawk.to */
-.tawk-min-container {
-  bottom: 50% !important;            /* metà schermo */
-  right: 30px !important;            /* distanza dal lato destro */
-  transform: translateY(50%) scale(1.4); /* centrato verticalmente e ingrandito */
-  transform-origin: center right;
-  z-index: 9999 !important;
+/* Nascondi hamburger e menu su desktop */
+.mobile-menu-toggle,
+.mobile-nav {
+  display: none;
 }
+
+/* Mostra solo su mobile */
+@media screen and (max-width: 768px) {
+  .mobile-menu-toggle {
+    display: block;
+    background-color: #470000;
+    color: white;
+    padding: 1rem;
+    text-align: center;
+    font-weight: bold;
+    cursor: pointer;
+  }
+
+  .mobile-nav {
+    display: none;
+    background-color: #eee;
+    padding: 1rem;
+  }
+
+  .mobile-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .mobile-nav li {
+    margin: 0.5rem 0;
+  }
+
+  .mobile-nav a {
+    text-decoration: none;
+    color: #470000;
+    font-weight: bold;
+  }
+
+  .sidebar {
+    display: none;
+  }
+}
+
