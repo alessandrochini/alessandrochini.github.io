@@ -14,3 +14,12 @@ body {
   margin-bottom: 10px;
   stroke: #4b1c1c;
 }
+
+/* Personalizzazione elegante Tawk.to */
+.tawk-min-container {
+  bottom: 50% !important;            /* metà schermo */
+  right: 30px !important;            /* distanza dal lato destro */
+  transform: translateY(50%) scale(1.4); /* centrato verticalmente e ingrandito */
+  transform-origin: center right;
+  z-index: 9999 !important;
+}
