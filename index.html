@@ -173,6 +173,49 @@
         It’s not just a smart tool — it’s a way to explore who I am through <strong>interactive conversation</strong>.<br><br>
         Feel free to ask anything. <strong>Let curiosity lead the conversation.</strong>
     </p>
+    <div id="ai-assistant" style="margin-top: 2rem; padding: 1rem; border: 1px solid #ccc; border-radius: 8px; background: #fff;">
+  <h3 style="color: #4b1c1c;">Ask something about me:</h3>
+  <input type="text" id="ai-question" placeholder="Type your question here..." style="width: 100%; padding: 0.6rem; margin: 0.5rem 0; border-radius: 4px; border: 1px solid #ccc;" />
+  <button onclick="askAI()" style="background-color: #4b1c1c; color: white; padding: 0.5rem 1rem; border: none; border-radius: 4px; cursor: pointer;">Ask</button>
+  <div id="ai-answer" style="margin-top: 1rem; font-style: italic; color: #333;"></div>
+</div>
+
+<script>
+const cvData = `
+I am a Business Assistant at OmniFast Solutions, an SME focused on digitalization for small and medium businesses. I’m also studying Big Data and Economics at Roma Tre University.
+
+Skills: RStudio, SQL, Excel, data analytics, business support, digital transformation, pricing, Canva graphics, social media, project coordination.
+
+Education: Bachelor in Big Data and Economics (2022-2025), Università Roma Tre. Courses: RStudio, Python, SQL, Economy of Platforms. Projects: Clustering on AI Index, Linear Regression on medical data.
+
+Experience: 
+- Business Assistant (2024–now) at OmniFast Solutions. Worked on Fast Project, Print&Go, Agenda360. Created digital graphics, managed social media, developed pricing strategies, handled client relations.
+
+Interests: Business analysis, data-driven decision making, strategy, data visualization.
+`;
+
+function askAI() {
+  const question = document.getElementById("ai-question").value.toLowerCase();
+  const answerBox = document.getElementById("ai-answer");
+
+  let answer = "I'm not sure how to answer that yet. Try asking about my experience, skills, or education.";
+
+  if (question.includes("experience")) {
+    answer = "I've been working at OmniFast Solutions since 2024, supporting projects like Fast Project, Print&Go and Agenda360. I also handled client relations, social media and pricing.";
+  } else if (question.includes("education")) {
+    answer = "I'm studying Big Data and Economics at Roma Tre University (2022–2025). I’ve worked on clustering and regression projects using RStudio.";
+  } else if (question.includes("skills") || question.includes("tools")) {
+    answer = "I’m skilled in RStudio, SQL, Excel, Canva, project support, pricing, digital graphics and social media management.";
+  } else if (question.includes("interests")) {
+    answer = "I'm passionate about business analysis, data-driven decisions, and turning data into actionable insights.";
+  } else if (question.includes("omnifast") || question.includes("job")) {
+    answer = "At OmniFast, I contributed to marketing, pricing, client interaction, and project research.";
+  }
+
+  answerBox.textContent = answer;
+}
+</script>
+
 </section>
 
 <section id="contact">
