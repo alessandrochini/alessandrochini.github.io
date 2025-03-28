@@ -177,3 +177,11 @@ p {
   }
 }
 
+#virtual-assistant {
+  overflow: visible;
+  min-height: 300px; /* puoi aumentare se vuoi più spazio iniziale */
+  padding-bottom: 3rem;
+}
+.content {
+  overflow-y: auto;
+}
