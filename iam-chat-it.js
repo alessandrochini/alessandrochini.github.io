@@ -2,64 +2,66 @@ document.addEventListener("DOMContentLoaded", function () {
   const input = document.getElementById("ai-question");
   const output = document.getElementById("ai-response");
 
-  let cv = null;
+  let cvData = null;
 
-  fetch('assets/cv-data-it.json')
-    .then(res => res.json())
-    .then(data => cv = data)
-    .catch(err => {
-      console.error("Error loading CV:", err);
-      output.textContent = "Sorry, I couldn't load the CV.";
+  fetch("assets/cv-data-it.json")
+    .then((res) => res.json())
+    .then((data) => {
+      cvData = data;
     });
 
   input.addEventListener("keypress", function (e) {
     if (e.key === "Enter") {
-      const q = input.value.toLowerCase();
-      if (!cv) {
-        output.textContent = "CV not available.";
+      const question = input.value.trim().toLowerCase();
+      if (!question || !cvData) {
+        output.textContent = "Dati del CV non disponibili o domanda vuota.";
         return;
       }
 
-      let response = "";
+      let response = "Non ho trovato una risposta precisa, ma posso aiutarti con esperienze, studi o competenze.";
 
-      if (q.includes("experience") || q.includes("job") || q.includes("work")) {
-        response = `Alessandro has gained relevant work experience in both digital consultancy and customer service roles. 
-At OmniFast Solutions, he has worked on digital projects, managed social media, supported clients, and contributed to the digitalization process of small businesses. 
-Previously, at Yoyogurt, he developed strong communication skills and adaptability by handling customer service in a fast-paced retail environment.`;
+      // Ricerca nel sommario
+      if (cvData.summary && cvData.summary.toLowerCase().includes(question)) {
+        response = cvData.summary;
       }
 
-      else if (q.includes("education") || q.includes("study") || q.includes("university")) {
-        response = `Alessandro is currently pursuing a Bachelor's Degree in Economics and Big Data at Roma Tre University, 
-where he's developing strong foundations in data analysis, digital economy, and programming tools such as R, SQL, and Python. 
-He also completed a Business English course in New York, which enhanced his communication skills in international contexts.`;
+      // Ricerca nell'esperienza
+      for (const exp of cvData.experience || []) {
+        const fullText = Object.values(exp).join(" ").toLowerCase();
+        if (fullText.includes(question)) {
+          response = `Esperienza:\n${exp.role} – ${exp.company} – ${exp.period} – ${exp.location} – ${exp.description}`;
+        }
       }
 
-      else if (q.includes("skills") || q.includes("strengths") || q.includes("what can you do")) {
-        response = `He combines analytical thinking with creativity, offering skills in digital transformation, content creation with Canva, 
-market research, and social media management. He’s also familiar with data analysis tools like R, SQL, and Python.`;
+      // Ricerca nell'istruzione
+      for (const edu of cvData.education || []) {
+        const fullText = Object.values(edu).join(" ").toLowerCase();
+        if (fullText.includes(question)) {
+          response = `Formazione:\n${edu.degree} – ${edu.institution} – ${edu.period} – ${edu.focus}`;
+        }
       }
 
-      else if (q.includes("language") || q.includes("speak") || q.includes("english")) {
-        response = `Alessandro is fluent in four languages: Italian (native), English (C1), Spanish (B2), and French (B1), 
-which allows him to operate in diverse international settings.`;
+      // Ricerca nelle competenze
+      for (const skill of cvData.skills || []) {
+        if (skill.toLowerCase().includes(question)) {
+          response = `Competenze:\n${skill}`;
+        }
       }
 
-      else if (q.includes("summary") || q.includes("who are you") || q.includes("about")) {
-        response = `Alessandro is a business student passionate about innovation and digital tools, 
-with real-world experience in helping SMEs evolve through technology. 
-He blends strategic thinking with hands-on execution, and thrives in collaborative environments.`;
+      // Ricerca nelle lingue
+      for (const lang of cvData.languages || []) {
+        const values = typeof lang === "string" ? lang : Object.values(lang).join(" ");
+        if (values.toLowerCase().includes(question)) {
+          response = `Lingua:\n${values}`;
+        }
       }
 
-      else {
-        response = `I’m Alessandro’s virtual assistant. Try asking me about his education, experience, skills, or languages — 
-I’ll give you a clearer picture of his background.`;
-      }
-
-      output.textContent = response;
+      output.textContent = `🔎 Risposta:\n\n${response}`;
       input.value = "";
     }
   });
 });
+
 
 
 
