@@ -2,26 +2,59 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>IAm - Demo RAG</title>
+  <title>IAm – Private Demo</title>
+
+  <!-- ✅ Prevent indexing by search engines -->
   <meta name="robots" content="noindex, nofollow">
 
+  <!-- ✅ Password protection -->
   <script>
-    const password = "A@2410!SSM92";
-    const access = prompt("Questa pagina è riservata. Inserisci la password:");
+    const password = "IAm2025"; // Change this password as you prefer
+    const access = prompt("This page is private. Please enter the password:");
     if (access !== password) {
-      document.body.innerHTML = "<h2 style='text-align:center;margin-top:100px;'>Accesso negato</h2>";
+      document.body.innerHTML = "<h2 style='text-align:center;margin-top:100px;'>Access denied</h2>";
       throw new Error("Access denied");
     }
   </script>
 
-  <link href="css/styles.css" rel="stylesheet" />
-</head>
-<body>
-  <h1 style="text-align: center;">🔐 Demo Privata IAm</h1>
-  <p style="text-align: center; max-width: 600px; margin: 1rem auto;">
-    Questa è una versione dimostrativa protetta del progetto IAm, accessibile solo con password.
-  </p>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f8f8f8;
+      margin: 0;
+      padding: 2rem;
+      text-align: center;
+    }
 
-  <!-- Qui potrai inserire la logica RAG o il prototipo -->
+    h1 {
+      color: #470000;
+      font-size: 2.5rem;
+    }
+
+    p {
+      max-width: 600px;
+      margin: 1rem auto;
+      font-size: 1.2rem;
+    }
+
+    .box {
+      background: white;
+      border-radius: 12px;
+      padding: 2rem;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      display: inline-block;
+      margin-top: 3rem;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box">
+    <h1>IAm – Private RAG Demo</h1>
+    <p>This is a confidential page to preview the prototype based on Alessandro's CV and AI-powered interaction.</p>
+    <p>🚧 The advanced answering system is currently under development. Soon you'll be able to test an interactive chat for recruiters.</p>
+    <p><strong>If you're authorized, stay tuned for updates and access the AI demo here.</strong></p>
+  </div>
 </body>
 </html>
+
