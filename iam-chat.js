@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function () {
   assistantOutput.id = "assistant-output";
   assistantOutput.style = "margin-top: 1rem; font-size: 1rem; color: #222; background: #f0f0f0; padding: 1rem; border-radius: 8px; white-space: pre-wrap;";
 
-  const container = document.getElementById("virtual-assistant");
+  const container = document.getElementById("chat-placeholder");
   container.appendChild(assistantInput);
   container.appendChild(assistantOutput);
 
