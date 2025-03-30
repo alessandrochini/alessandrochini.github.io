@@ -1,53 +1,78 @@
 document.addEventListener("DOMContentLoaded", function () {
-  const assistantInput = document.getElementById("ai-question");
-  const assistantOutput = document.getElementById("ai-response");
+  const assistantInput = document.createElement("input");
+  assistantInput.type = "text";
+  assistantInput.placeholder = "Ask me anything about Alessandro...";
+  assistantInput.style = "width: 100%; padding: 0.5rem; font-size: 1rem; margin-top: 2rem;";
 
-  let cvData = null;
+  const assistantOutput = document.createElement("div");
+  assistantOutput.id = "assistant-output";
+  assistantOutput.style = "margin-top: 1rem; font-size: 1rem; color: #222; background: #f0f0f0; padding: 1rem; border-radius: 8px; white-space: pre-wrap;";
 
-  fetch('assets/cv-data.json')
+  const container = document.getElementById("virtual-assistant");
+  container.appendChild(assistantInput);
+  container.appendChild(assistantOutput);
+
+  // Caricamento CV
+  fetch("assets/cv-data.json")
     .then(response => response.json())
     .then(data => {
-      cvData = data;
+      const options = {
+        includeScore: true,
+        threshold: 0.3,
+        keys: [
+          "about",
+          "skills",
+          "education.degree",
+          "education.details",
+          "experience.role",
+          "experience.company",
+          "experience.details",
+          "languages"
+        ]
+      };
+
+      const fuse = new Fuse([data], options); // indice completo
+
+      assistantInput.addEventListener("keypress", function (e) {
+        if (e.key === "Enter") {
+          const query = assistantInput.value.trim();
+          if (!query) return;
+
+          const results = fuse.search(query);
+          if (results.length > 0) {
+            const match = results[0].item;
+            const responseParts = [];
+
+            if (query.toLowerCase().includes("experience") && match.experience) {
+              match.experience.forEach(exp => {
+                responseParts.push(`🧑‍💼 ${exp.role} at ${exp.company}\n${exp.details}`);
+              });
+            } else if (query.toLowerCase().includes("education") && match.education) {
+              match.education.forEach(ed => {
+                responseParts.push(`🎓 ${ed.degree}\n${ed.details}`);
+              });
+            } else if (query.toLowerCase().includes("skill") && match.skills) {
+              responseParts.push("💡 Skills:\n" + match.skills.join(", "));
+            } else if (query.toLowerCase().includes("language") && match.languages) {
+              responseParts.push("🌍 Languages:\n" + match.languages.join(", "));
+            } else {
+              responseParts.push("🔎 Here's what I found:\n");
+              responseParts.push(JSON.stringify(match, null, 2));
+            }
+
+            assistantOutput.textContent = responseParts.join("\n\n");
+          } else {
+            assistantOutput.textContent = "I couldn’t find anything relevant in Alessandro’s CV. Try asking about experience, education, or skills.";
+          }
+
+          assistantInput.value = "";
+        }
+      });
     })
     .catch(error => {
-      console.error("Failed to load CV data:", error);
-      assistantOutput.textContent = "Error loading CV data.";
+      console.error("CV load error:", error);
+      assistantOutput.textContent = "CV data not available.";
     });
-
-  assistantInput.addEventListener("keypress", function (e) {
-    if (e.key === "Enter") {
-      const query = assistantInput.value.toLowerCase();
-      if (!cvData) {
-        assistantOutput.textContent = "CV data not available.";
-        return;
-      }
-
-      let found = false;
-      const answers = [];
-
-      for (const section in cvData) {
-        if (typeof cvData[section] === "string") {
-          if (cvData[section].toLowerCase().includes(query)) {
-            answers.push(`${section}: ${cvData[section]}`);
-            found = true;
-          }
-        } else if (Array.isArray(cvData[section])) {
-          cvData[section].forEach(entry => {
-            const values = Object.values(entry).join(" ").toLowerCase();
-            if (values.includes(query)) {
-              answers.push(`${section}: ${Object.values(entry).join(", ")}`);
-              found = true;
-            }
-          });
-        }
-      }
-
-      assistantOutput.textContent = found
-        ? answers.join("\n\n")
-        : "I couldn’t find anything relevant in Alessandro’s CV. Try asking about experience, education, or skills.";
-
-      assistantInput.value = "";
-    }
-  });
 });
+
 
