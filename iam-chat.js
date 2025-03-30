@@ -1,21 +1,9 @@
-
 document.addEventListener("DOMContentLoaded", function () {
-  const assistantInput = document.createElement("input");
-  assistantInput.type = "text";
-  assistantInput.placeholder = "Ask me anything about Alessandro...";
-  assistantInput.style = "width: 100%; padding: 0.5rem; font-size: 1rem; margin-top: 2rem;";
-
-  const assistantOutput = document.createElement("div");
-  assistantOutput.id = "assistant-output";
-  assistantOutput.style = "margin-top: 1rem; font-size: 1rem; color: #222; background: #f0f0f0; padding: 1rem; border-radius: 8px;";
-
-  const container = document.getElementById("virtual-assistant");
-  container.appendChild(assistantInput);
-  container.appendChild(assistantOutput);
+  const assistantInput = document.getElementById("ai-question");
+  const assistantOutput = document.getElementById("ai-response");
 
   let cvData = null;
 
-  // Carichiamo il file JSON
   fetch('assets/cv-data.json')
     .then(response => response.json())
     .then(data => {
@@ -40,14 +28,14 @@ document.addEventListener("DOMContentLoaded", function () {
       for (const section in cvData) {
         if (typeof cvData[section] === "string") {
           if (cvData[section].toLowerCase().includes(query)) {
-            answers.push(`📌 ${section}: ${cvData[section]}`);
+            answers.push(`${section}: ${cvData[section]}`);
             found = true;
           }
         } else if (Array.isArray(cvData[section])) {
           cvData[section].forEach(entry => {
             const values = Object.values(entry).join(" ").toLowerCase();
             if (values.includes(query)) {
-              answers.push(`📌 ${section}: ${JSON.stringify(entry)}`);
+              answers.push(`${section}: ${Object.values(entry).join(", ")}`);
               found = true;
             }
           });
@@ -62,3 +50,4 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 });
+
