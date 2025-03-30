@@ -185,3 +185,38 @@ p {
 .content {
   overflow-y: auto;
 }
+
+#ai-chat-container {
+  margin-top: 2rem;
+  background-color: #fdfdfd;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+#ai-question {
+  width: 100%;
+  padding: 1rem;
+  font-size: 1.1rem;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  margin-top: 1rem;
+  box-sizing: border-box;
+}
+
+#ai-response {
+  margin-top: 1.5rem;
+  font-size: 1.1rem;
+  color: #333;
+  background: #f5f5f5;
+  padding: 1rem;
+  border-left: 4px solid #470000;
+  border-radius: 6px;
+  white-space: pre-line;
+}
+
+.chat-title {
+  font-size: 1.3rem;
+  color: #470000;
+  margin-bottom: 0.5rem;
+}
