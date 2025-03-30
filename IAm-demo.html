@@ -1,8 +1,19 @@
-<script>
-  const password = "A@2410!SSM92"; //
-  const access = prompt("Questa pagina è riservata. Inserisci la password:");
-  if (access !== password) {
-    document.body.innerHTML = "<h2 style='text-align:center;margin-top:100px;'>Accesso negato</h2>";
-    throw new Error("Access denied");
-  }
-</script>
+<head>
+  <meta charset="UTF-8">
+  <title>IAm - Demo Privata</title>
+
+  <!-- ✅ Impedisce l’indicizzazione dai motori di ricerca -->
+  <meta name="robots" content="noindex, nofollow">
+
+  <!-- ✅ Script per protezione con password -->
+  <script>
+    const password = "A@2410!SSM92"; // 
+    const access = prompt("Questa pagina è riservata. Inserisci la password:");
+    if (access !== password) {
+      document.body.innerHTML = "<h2 style='text-align:center;margin-top:100px;'>Accesso negato</h2>";
+      throw new Error("Access denied");
+    }
+  </script>
+
+  <link href="css/styles.css" rel="stylesheet" />
+</head>
