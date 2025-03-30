@@ -1,87 +1,62 @@
 document.addEventListener("DOMContentLoaded", function () {
-  const assistantInput = document.createElement("input");
-  assistantInput.type = "text";
-  assistantInput.placeholder = "Fai una domanda su Alessandro...";
-  assistantInput.style = "width: 100%; padding: 0.7rem; font-size: 1rem; margin-top: 1rem; border: 1px solid #ccc; border-radius: 5px;";
+  const input = document.getElementById("ai-question");
+  const output = document.getElementById("ai-response");
 
-  const assistantOutput = document.createElement("div");
-  assistantOutput.id = "assistant-output";
-  assistantOutput.style = "margin-top: 1rem; font-size: 1rem; color: #222; background: #f7f7f7; padding: 1.2rem; border-radius: 8px; white-space: pre-line;";
+  let cv = null;
 
-  const container = document.getElementById("virtual-assistant");
-  container.appendChild(assistantInput);
-  container.appendChild(assistantOutput);
-
-  let cvData = null;
-
-  fetch('assets/cv-data-it.json')
-    .then(response => response.json())
-    .then(data => {
-      cvData = data;
-    })
-    .catch(error => {
-      console.error("Errore nel caricamento del CV:", error);
-      assistantOutput.textContent = "Errore nel caricamento del CV.";
+  fetch("assets/cv-data-it.json")
+    .then(res => res.json())
+    .then(data => cv = data)
+    .catch(err => {
+      console.error("Errore nel caricamento del CV:", err);
+      output.textContent = "Spiacente, non riesco a caricare il CV.";
     });
 
-  assistantInput.addEventListener("keypress", function (e) {
+  input.addEventListener("keypress", function (e) {
     if (e.key === "Enter") {
-      const query = assistantInput.value.toLowerCase();
-      if (!cvData) {
-        assistantOutput.textContent = "CV non disponibile al momento.";
+      const q = input.value.toLowerCase();
+      if (!cv) {
+        output.textContent = "CV non disponibile.";
         return;
       }
 
-      const matches = [];
+      let response = "";
 
-      if (cvData.experience) {
-        cvData.experience.forEach(entry => {
-          const allText = Object.values(entry).join(" ").toLowerCase();
-          if (allText.includes(query)) {
-            matches.push(`Alessandro ha lavorato come ${entry.role} presso ${entry.company} a ${entry.location} (${entry.period}). Si è occupato di ${entry.description.toLowerCase()}.`);
-          }
-        });
+      if (q.includes("esperienza") || q.includes("lavoro") || q.includes("ruolo")) {
+        response = `Alessandro ha maturato esperienze lavorative sia nella consulenza digitale che nel servizio clienti.
+Presso OmniFast Solutions ha seguito progetti digitali, gestito contenuti e social media, e supportato la trasformazione digitale delle PMI.
+In precedenza, da Yoyogurt, ha affinato capacità comunicative e di adattamento gestendo clienti in un contesto dinamico.`;
       }
 
-      if (cvData.education) {
-        cvData.education.forEach(entry => {
-          const allText = Object.values(entry).join(" ").toLowerCase();
-          if (allText.includes(query)) {
-            matches.push(`Alessandro ha conseguito il titolo di ${entry.title} presso ${entry.school} (${entry.period}). Durante il percorso ha approfondito ${entry.description.toLowerCase()}.`);
-          }
-        });
+      else if (q.includes("formazione") || q.includes("studio") || q.includes("università")) {
+        response = `Alessandro è attualmente iscritto alla laurea in Economia e Big Data presso l’Università Roma Tre,
+dove approfondisce analisi dei dati, economia digitale e strumenti come R, SQL e Python.
+Ha inoltre completato un corso di Business English a New York, rafforzando le sue competenze comunicative in ambito internazionale.`;
       }
 
-      if (cvData.skills) {
-        const foundSkills = cvData.skills.filter(skill =>
-          skill.toLowerCase().includes(query)
-        );
-        if (foundSkills.length) {
-          matches.push(`Le competenze di Alessandro includono: ${foundSkills.join(", ").toLowerCase()}.`);
-        }
+      else if (q.includes("competenze") || q.includes("punti di forza") || q.includes("abilità")) {
+        response = `Alessandro unisce pensiero analitico e creatività, con competenze nella trasformazione digitale, creazione di contenuti con Canva,
+ricerca di mercato e gestione social. È anche pratico nell’uso di strumenti di analisi come R, SQL e Python.`;
       }
 
-      if (cvData.languages) {
-        const foundLanguages = cvData.languages.filter(lang =>
-          `${lang.language} ${lang.level}`.toLowerCase().includes(query)
-        );
-        if (foundLanguages.length) {
-          matches.push(`Alessandro parla ${foundLanguages.map(l => `${l.language} (${l.level})`).join(", ").toLowerCase()}.`);
-        }
+      else if (q.includes("lingue") || q.includes("parli") || q.includes("inglese")) {
+        response = `Alessandro parla fluentemente quattro lingue: Italiano (madrelingua), Inglese (C1), Spagnolo (B2) e Francese (B1),
+il che gli permette di operare in contesti internazionali.`;        
       }
 
-      assistantOutput.textContent = matches.length
-        ? matches.join("\n\n")
-        : "Alessandro non sembra avere informazioni rilevanti su questo argomento nel suo CV. Prova a chiedere di esperienze, formazione o competenze.";
+      else if (q.includes("chi è ") || q.includes("profilo") || q.includes("riassunto")) {
+        response = `Alessandro è uno studente di economia appassionato di innovazione e strumenti digitali,
+con esperienze concrete nel supporto alla digitalizzazione delle PMI.
+Sa coniugare visione strategica e operatività, lavorando bene in team e contesti dinamici.`;
+      }
 
-      assistantInput.value = "";
+      else {
+        response = `Sono l’assistente virtuale di Alessandro. Prova a chiedermi qualcosa sulla sua esperienza, formazione, competenze o lingue —
+ti aiuterò a conoscerlo meglio.`;
+      }
+
+      output.textContent = response;
+      input.value = "";
     }
   });
 });
-
-
-
-
-
-
-
