@@ -1,35 +1,52 @@
 {
   "name": "Alessandro Chini",
   "summary": "Business student passionate about digital transformation and data-driven strategies. Experienced in supporting SMEs in digitalization projects.",
+
   "education": [
     {
-      "degree": "Bachelor\u2019s Degree in Economics and Big Data",
-      "institution": "Roma Tre University",
-      "period": "2022 \u2013 ongoing",
-      "focus": "Digital economy, big data strategies, R, SQL, Python"
+      "title": "Bachelor’s Degree in Economics and Big Data",
+      "school": "Roma Tre University",
+      "period": "2022 – ongoing",
+      "description": "Focus on digital economy, public/private big data strategies, statistical tools including R, SQL and Python (basic)."
     },
     {
-      "degree": "Business English Course",
-      "institution": "ESL Language School (Kaplan) \u2013 New York",
-      "period": "Jul \u2013 Aug 2022",
-      "focus": "Business communication, digital topics, presentations"
+      "title": "Business English Course",
+      "school": "Kaplan, ESL Language School, New York",
+      "period": "Jul – Aug 2022",
+      "description": "Business communication, digital topics, project work, group discussions and presentations."
     }
   ],
-  "experience": [],
+
+  "experience": [
+    {
+      "role": "Business Assistant",
+      "company": "OmniFast Solutions S.R.L.",
+      "period": "Feb 2024 – Present",
+      "location": "Rome",
+      "description": "Supporting digital services, managing content and social media, assisting SMEs in digital transformation."
+    },
+    {
+      "role": "Retail Assistant",
+      "company": "Yoyogurt",
+      "period": "Jul 2023 – Sep 2023",
+      "location": "Rome",
+      "description": "Customer service, cash operations, teamwork in a fast-paced environment."
+    }
+  ],
+
   "skills": [
-    "Business Support",
-    "Digital Transformation",
-    "Social Media Management",
-    "Data Analysis",
+    "Business Support & Digital Transformation",
+    "Social Media Management (Meta Business)",
     "Content Creation with Canva",
-    "Teamwork",
-    "R, SQL, Python (basic)"
+    "Teamwork & Problem Solving",
+    "Data-driven decision making",
+    "Statistical tools: R, SQL, Python (basic)"
   ],
+
   "languages": [
-    "Italian: Native",
-    "English: C1",
-    "Spanish: B2",
-    "French: B1"
-  ],
-  "raw_text": "\u0002\u0003"
+    { "language": "Italian", "level": "Native speaker" },
+    { "language": "English", "level": "C1" },
+    { "language": "Spanish", "level": "B2" },
+    { "language": "French", "level": "B1" }
+  ]
 }
