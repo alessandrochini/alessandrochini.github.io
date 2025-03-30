@@ -164,7 +164,7 @@
             </ul>
         </section>
 
-        
+
 <section id="virtual-assistant">
   <h2>Virtual Assistant</h2>
   <p>
@@ -173,7 +173,12 @@
     It’s not just a smart tool — it’s a way to explore who I am through <strong>interactive conversation</strong>.<br><br>
     Feel free to ask anything. <strong>Let curiosity lead the conversation.</strong>
   </p>
-</section> <!-- ✅ Chiusura PRIMA dello script -->
+  <div id="ai-chat-container">
+    <input id="ai-question" type="text" placeholder="Ask me anything..." />
+    <div id="ai-response"></div>
+  </div>
+</section>
+
 
 <section id="contact">
   <h2>Contact</h2>
@@ -218,54 +223,8 @@ s0.parentNode.insertBefore(s1,s0);
   }
 </script>
 
-<!-- AI Chat Assistant Script -->
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const assistantInput = document.createElement("input");
-    assistantInput.type = "text";
-    assistantInput.placeholder = "Ask me anything about Alessandro...";
-    assistantInput.style = "width: 100%; padding: 0.5rem; font-size: 1rem; margin-top: 2rem;";
+<script src="iam-chat.js"></script>
 
-    const assistantOutput = document.createElement("div");
-    assistantOutput.id = "assistant-output";
-    assistantOutput.style = "margin-top: 1rem; font-size: 1rem; color: #222; background: #f0f0f0; padding: 1rem; border-radius: 8px;";
-
-    const container = document.getElementById("virtual-assistant");
-    container.appendChild(assistantInput);
-    container.appendChild(assistantOutput);
-
-    assistantInput.addEventListener("keypress", function (e) {
-      if (e.key === "Enter") {
-        const userInput = assistantInput.value.toLowerCase();
-        let response = "";
-
-        if (userInput.includes("experience") && userInput.includes("omni")) {
-          response = "Alessandro's experience at OmniFast involved digital project support, social media management, client interaction, and pricing strategy.";
-        } else if (userInput.includes("tools") || userInput.includes("software")) {
-          response = "He has used RStudio, SQL, Excel, and Canva for statistical analysis, content creation, and data visualization.";
-        } else if (userInput.includes("junior business analyst") || userInput.includes("business analyst")) {
-          response = "Alessandro is well-suited for a Junior Business Analyst role thanks to his data analysis skills, business insight, and experience in supporting SME digital projects.";
-        } else if (userInput.includes("data driven") || userInput.includes("decision making")) {
-          response = "He is passionate about data-driven decision making and has worked on projects involving clustering and regression in R.";
-        } else if (userInput.includes("education") || userInput.includes("university")) {
-          response = "He is currently pursuing a Bachelor's Degree in Big Data and Economics at Roma Tre University with strong focus on data, platforms and digital economy.";
-        } else if (userInput.includes("strength") || userInput.includes("skills")) {
-          response = "His main strengths are adaptability, analytical thinking, digital communication, and teamwork.";
-        } else if (
-          userInput.includes("why") && (userInput.includes("fit") || userInput.includes("suitable") || userInput.includes("match")) ||
-          userInput.includes("how") && userInput.includes("help") && userInput.includes("this role")
-        ) {
-          response = "His combined academic background and practical experience make Alessandro a strong fit for junior roles where digital transformation, analytical mindset and adaptability are essential.";
-        } else {
-          response = "This assistant is based on Alessandro's real CV and experience. Try asking about his skills, education, or work at OmniFast!";
-        }
-
-        assistantOutput.textContent = response;
-        assistantInput.value = "";
-      }
-    });
-  });
-</script>
 
 </body>
 
