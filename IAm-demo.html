@@ -1,13 +1,12 @@
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>IAm - Demo Privata</title>
-
-  <!-- ✅ Impedisce l’indicizzazione dai motori di ricerca -->
+  <title>IAm - Demo RAG</title>
   <meta name="robots" content="noindex, nofollow">
 
-  <!-- ✅ Script per protezione con password -->
   <script>
-    const password = "A@2410!SSM92"; // 
+    const password = "A@2410!SSM92";
     const access = prompt("Questa pagina è riservata. Inserisci la password:");
     if (access !== password) {
       document.body.innerHTML = "<h2 style='text-align:center;margin-top:100px;'>Accesso negato</h2>";
@@ -17,3 +16,12 @@
 
   <link href="css/styles.css" rel="stylesheet" />
 </head>
+<body>
+  <h1 style="text-align: center;">🔐 Demo Privata IAm</h1>
+  <p style="text-align: center; max-width: 600px; margin: 1rem auto;">
+    Questa è una versione dimostrativa protetta del progetto IAm, accessibile solo con password.
+  </p>
+
+  <!-- Qui potrai inserire la logica RAG o il prototipo -->
+</body>
+</html>
