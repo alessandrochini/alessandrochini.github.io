@@ -1,0 +1,60 @@
+{
+  "name": "Alessandro Chini",
+  "summary": "Studente di economia appassionato di trasformazione digitale e strategie basate sui dati. Esperienza nel supportare le PMI in progetti di digitalizzazione.",
+  "education": [
+    {
+      "degree": "Laurea in Economia e Big Data",
+      "institution": "Università Roma Tre",
+      "period": "2022 – in corso",
+      "focus": "Economia digitale, strategie big data, R, SQL, Python"
+    },
+    {
+      "degree": "Corso di Business English",
+      "institution": "Scuola di lingue ESL (Kaplan) – New York",
+      "period": "Lug – Ago 2022",
+      "focus": "Comunicazione aziendale, temi digitali, presentazioni"
+    }
+  ],
+  "experience": [
+    {
+      "role": "Assistente Aziendale",
+      "company": "OmniFast Solutions S.R.L.",
+      "period": "Feb 2024 – Presente",
+      "location": "Roma",
+      "description": "Supporto ai servizi digitali, gestione dei contenuti e dei social media, assistenza alla trasformazione digitale delle PMI."
+    },
+    {
+      "role": "Addetto alla Vendita",
+      "company": "Yoyogurt",
+      "period": "Lug 2023 – Set 2023",
+      "location": "Roma",
+      "description": "Servizio clienti, operazioni di cassa, lavoro di squadra in un ambiente dinamico."
+    }
+  ],
+  "skills": [
+    "Supporto aziendale e trasformazione digitale",
+    "Gestione social media (Meta Business)",
+    "Creazione contenuti con Canva",
+    "Teamwork e problem solving",
+    "Decisioni basate sui dati",
+    "Strumenti statistici: R, SQL, Python (base)"
+  ],
+  "languages": [
+    {
+      "language": "Italiano",
+      "level": "Madrelingua"
+    },
+    {
+      "language": "Inglese",
+      "level": "C1"
+    },
+    {
+      "language": "Spagnolo",
+      "level": "B2"
+    },
+    {
+      "language": "Francese",
+      "level": "B1"
+    }
+  ]
+}
